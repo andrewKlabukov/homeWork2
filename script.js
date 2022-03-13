@@ -73,8 +73,4 @@ myIterable[Symbol.iterator] = function() {
     }
   }
 }
-for (let item of myIterable) { // Ошибка!
-  console.log(item);
- }
- 
- 
+
