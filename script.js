@@ -19,29 +19,14 @@ function makeObjectDeepCopy(obj) {
 
 // Задание 2
 
-function selectFromInterval(array, firstArg, secondArg) {
-  const isValid = Array.isArray(array) && array.every((el) => typeof el === 'number') && typeof firstArg === 'number' && typeof secondArg === 'number';
-  const newArr = [];
-  const result = [];
+function selectFromInterval(array, firstValue, secondValue) {
+  const isValid = Array.isArray(array) && array.every( (item) => typeof item === 'number' );
+  const result = array.filter( (el) => el <= firstValue && el >= secondValue );
 
-  if (firstArg < secondArg && isValid) {
-    for (let i = firstArg; i <= secondArg; i++) {
-      newArr.push(i);
-    }
-  } 
-  else if (firstArg > secondArg && isValid) {
-    for (let i = secondArg; i <= firstArg; i++) {
-      newArr.push(i);
-    }
-  } else {
-    throw new Error('Ошибка!');
-  }
-
-  newArr.forEach(el => {
-    if (array.includes(el)) {
-      result.push(el);
-    }
-  })
+  if (!isValid) {
+      throw new Error('Ошибка!');
+  };
+  
   return result;
 }
 
